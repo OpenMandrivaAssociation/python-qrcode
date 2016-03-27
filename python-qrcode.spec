@@ -2,7 +2,7 @@
 
 Summary:	Python QR Code image generator
 Name:		python-%{oname}
-Version:	5.0.1
+Version:	5.2.2
 Release:	1
 License:	BSD
 Group:		Development/Python
@@ -44,7 +44,7 @@ Core Python module for QR code generation. Does not contain image rendering.
 %{python_sitelib}/%{oname}/*.py*
 %{python_sitelib}/%{oname}/image/__init__.py*
 %{python_sitelib}/%{oname}/image/base.py*
-
+%{python_sitelib}/%{oname}/tests
 #----------------------------------------------------------------------------
 
 %prep
