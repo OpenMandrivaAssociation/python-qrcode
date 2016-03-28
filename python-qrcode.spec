@@ -10,6 +10,9 @@ Url:		https://github.com/lincolnloop/python-qrcode
 Source0:	http://pypi.python.org/packages/source/q/qrcode/%{oname}-%{version}.tar.gz
 BuildRequires:	python-imaging
 BuildRequires:	python-setuptools
+BuildRequires:	python2-imaging
+BuildRequires:	python2-setuptools
+BuildRequires:	python2-six
 BuildRequires:	python-six
 BuildRequires:	pkgconfig(python)
 Requires:	python-imaging
