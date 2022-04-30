@@ -71,8 +71,8 @@ ln -s qr %{buildroot}%{_bindir}/qrcode
 %{_mandir}/man1/qr.1*
 %{python3_sitelib}/%{pkgname}/image/svg.py*
 %{python3_sitelib}/%{pkgname}/image/pil.py*
-%{python3_sitelib}/%{pkgname}/image/__pycache__/svg.*
-%{python3_sitelib}/%{pkgname}/image/__pycache__/pil.*
+#{python3_sitelib}/%{pkgname}/image/__pycache__/svg.*
+#{python3_sitelib}/%{pkgname}/image/__pycache__/pil.*
 
 %files -n python3-%{pkgname}-core
 %doc README.rst CHANGES.rst
@@ -85,5 +85,6 @@ ln -s qr %{buildroot}%{_bindir}/qrcode
 %{python3_sitelib}/%{pkgname}/__pycache__
 %{python3_sitelib}/%{pkgname}/image/__init__.py*
 %{python3_sitelib}/%{pkgname}/image/base.py*
-%{python3_sitelib}/%{pkgname}/image/__pycache__/__init__.*
-%{python3_sitelib}/%{pkgname}/image/__pycache__/base.*
+#{python3_sitelib}/%{pkgname}/image/__pycache__/__init__.*
+#{python3_sitelib}/%{pkgname}/image/__pycache__/base.*
+
