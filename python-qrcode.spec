@@ -65,6 +65,7 @@ Core Python 3 module for QR code generation. Does not contain image rendering.
 %{python3_sitelib}/%{module}/image/__pycache__/base.*
 %{python3_sitelib}/%{module}/image/__pycache__/pil.*
 %{python3_sitelib}/%{module}/image/__pycache__/styledpil.*
+%{python3_sitelib}/%{module}/image/__pycache__/svg.*
 
 #---------------------------------------------------------------------------
 
