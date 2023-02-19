@@ -48,10 +48,8 @@ Core Python 3 module for QR code generation. Does not contain image rendering.
 %doc README.rst CHANGES.rst
 %dir %{python3_sitelib}/%{module}/
 %dir %{python3_sitelib}/%{module}/image
-#%%dir %{python3_sitelib}/%{module}/image/__pycache__
-%{python3_sitelib}/%{module}*.egg-info
+%{python3_sitelib}/%{module}*.*-info
 %{python3_sitelib}/%{module}/*.py*
-#%%{python3_sitelib}/%{module}/__pycache__
 %{python3_sitelib}/%{module}/image/__init__.py*
 %{python3_sitelib}/%{module}/image/base.py*
 %{python3_sitelib}/%{module}/image/styles/
