@@ -2,7 +2,7 @@
 
 Summary:	Python QR Code image generator
 Name:		python-%{module}
-Version:	7.3.1
+Version:	7.4.2
 Release:	1
 License:	BSD
 URL:		https://github.com/lincolnloop/python-qrcode
