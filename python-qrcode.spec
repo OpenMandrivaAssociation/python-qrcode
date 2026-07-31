@@ -1,7 +1,7 @@
 Summary:	Python QR Code image generator
 Name:		python-qrcode
-Version:	7.4.2
-Release:	4
+Version:	8.2
+Release:	1
 License:	BSD
 URL:		https://github.com/lincolnloop/python-qrcode
 Source0:	https://pypi.python.org/packages/source/q/qrcode/qrcode-%{version}.tar.gz
@@ -70,7 +70,7 @@ Core Python module for QR code generation. Does not contain image rendering.
 #---------------------------------------------------------------------------
 
 %prep
-%autosetup -n qrcode-%{version}
+%autosetup -n qrcode-8.2
 
 # The pure plugin requires pymaging which is not packaged in Fedora.
 rm qrcode/image/pure.py*
