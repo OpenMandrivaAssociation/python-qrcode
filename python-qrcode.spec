@@ -6,6 +6,8 @@ License:	BSD
 Group:		Development/Python
 URL:		https://github.com/lincolnloop/python-qrcode
 Source0:	https://pypi.python.org/packages/source/q/qrcode/qrcode-%{version}.tar.gz
+# Poetry cannot install data files, so the man page is not in the wheel.
+Source1:	qr.1
 BuildArch:	noarch
 
 BuildRequires:	pkgconfig(python3)
@@ -13,7 +15,6 @@ BuildRequires:	python%{pyver}dist(pillow)
 BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(poetry-core)
 BuildRequires:	python%{pyver}dist(setuptools)
-BuildRequires:	python%{pyver}dist(six)
 BuildRequires:	python%{pyver}dist(wheel)
 
 Requires:	python%{pyver}dist(pillow)
@@ -40,7 +41,6 @@ generation of QR Codes.
 
 %package -n %{name}-core
 Summary:	Python 3 QR Code image generator (core library)
-Requires:	python%{pyver}dist(six)
 Group:		Development/Python
 
 %description -n %{name}-core
@@ -57,10 +57,10 @@ Core Python module for QR code generation. Does not contain image rendering.
 %{python3_sitelib}/qrcode/__pycache__
 %{python3_sitelib}/qrcode/compat/__init__.py*
 %{python3_sitelib}/qrcode/compat/etree.py
-%{python3_sitelib}/qrcode/compat/pil.py
+%{python3_sitelib}/qrcode/compat/png.py
 %{python3_sitelib}/qrcode/compat/__pycache__/__init__.*
 %{python3_sitelib}/qrcode/compat/__pycache__/etree.*
-%{python3_sitelib}/qrcode/compat/__pycache__/pil.*
+%{python3_sitelib}/qrcode/compat/__pycache__/png.*
 %{python3_sitelib}/qrcode/image/__init__.py*
 %{python3_sitelib}/qrcode/image/base.py*
 %{python3_sitelib}/qrcode/image/styles/
@@ -97,4 +97,5 @@ rm -r %{buildroot}%{python3_sitelib}/qrcode/tests
 # We cary this symlink to maintain compat with old packages.
 #
 ln -s qr %{buildroot}%{_bindir}/qrcode
+install -D -m 644 %{SOURCE1} %{buildroot}%{_mandir}/man1/qr.1
 
