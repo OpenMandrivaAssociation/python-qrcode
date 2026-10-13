@@ -11,6 +11,7 @@ BuildArch:	noarch
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	python%{pyver}dist(pillow)
 BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(poetry-core)
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(six)
 BuildRequires:	python%{pyver}dist(wheel)
@@ -18,7 +19,7 @@ BuildRequires:	python%{pyver}dist(wheel)
 Requires:	python%{pyver}dist(pillow)
 Requires:	%{name}-core = %{EVRD}
 
-#Provides:	python3-qrcode = %{version}-%{release}
+# The old python3-qrcode provide is obsolete.
 Obsoletes:	python3-qrcode-core < %{version}
 
 %description
