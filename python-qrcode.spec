@@ -3,11 +3,12 @@ Name:		python-qrcode
 Version:	8.2
 Release:	1
 License:	BSD
+Group:		Development/Python
 URL:		https://github.com/lincolnloop/python-qrcode
 Source0:	https://pypi.python.org/packages/source/q/qrcode/qrcode-%{version}.tar.gz
 BuildArch:	noarch
 
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	python%{pyver}dist(pillow)
 BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(setuptools)
@@ -15,7 +16,7 @@ BuildRequires:	python%{pyver}dist(six)
 BuildRequires:	python%{pyver}dist(wheel)
 
 Requires:	python%{pyver}dist(pillow)
-Requires:	%{name}-core = %{version}-%{release}
+Requires:	%{name}-core = %{EVRD}
 
 #Provides:	python3-qrcode = %{version}-%{release}
 Obsoletes:	python3-qrcode-core < %{version}
@@ -38,7 +39,8 @@ generation of QR Codes.
 
 %package -n %{name}-core
 Summary:	Python 3 QR Code image generator (core library)
-Requires:	python-six
+Requires:	python%{pyver}dist(six)
+Group:		Development/Python
 
 %description -n %{name}-core
 Core Python module for QR code generation. Does not contain image rendering.
@@ -70,7 +72,7 @@ Core Python module for QR code generation. Does not contain image rendering.
 #---------------------------------------------------------------------------
 
 %prep
-%autosetup -n qrcode-8.2
+%autosetup -n qrcode-%{version}
 
 # The pure plugin requires pymaging which is not packaged in Fedora.
 rm qrcode/image/pure.py*
