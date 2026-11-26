@@ -1,7 +1,7 @@
 Summary:	Python QR Code image generator
 Name:		python-qrcode
 Version:	8.2
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Python
 URL:		https://github.com/lincolnloop/python-qrcode
@@ -42,9 +42,13 @@ generation of QR Codes.
 %package -n %{name}-core
 Summary:	Python 3 QR Code image generator (core library)
 Group:		Development/Python
+# qrcode.main's default image factory is PyPNGImage.
+Recommends:	python%{pyver}dist(pypng)
 
 %description -n %{name}-core
-Core Python module for QR code generation. Does not contain image rendering.
+Core Python module for QR code generation. qrcode.image.pure is the
+default PNG writer and is imported by qrcode.main. Pillow and SVG
+rendering are in the python-qrcode package.
 
 %files -n %{name}-core
 %license LICENSE
@@ -63,9 +67,11 @@ Core Python module for QR code generation. Does not contain image rendering.
 %{python3_sitelib}/qrcode/compat/__pycache__/png.*
 %{python3_sitelib}/qrcode/image/__init__.py*
 %{python3_sitelib}/qrcode/image/base.py*
+%{python3_sitelib}/qrcode/image/pure.py*
 %{python3_sitelib}/qrcode/image/styles/
 %{python3_sitelib}/qrcode/image/__pycache__/__init__.*
 %{python3_sitelib}/qrcode/image/__pycache__/base.*
+%{python3_sitelib}/qrcode/image/__pycache__/pure.*
 %{python3_sitelib}/qrcode/image/__pycache__/pil.*
 %{python3_sitelib}/qrcode/image/__pycache__/styledpil.*
 %{python3_sitelib}/qrcode/image/__pycache__/svg.*
@@ -75,8 +81,9 @@ Core Python module for QR code generation. Does not contain image rendering.
 %prep
 %autosetup -n qrcode-%{version}
 
-# The pure plugin requires pymaging which is not packaged in Fedora.
-rm qrcode/image/pure.py*
+# qrcode.main imports qrcode.image.pure. Upstream 8.2 implements that
+# writer with pypng (qrcode.compat.png), not pymaging. Keep the module.
+# Encoding a PNG still needs python-pypng; importing the module does not.
 
 # Remove shebang
 sed -i '1d' qrcode/console_scripts.py
